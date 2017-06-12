@@ -27,18 +27,15 @@ public class JSONController {
 	 */
 	@RequestMapping(params = "createFriendConnection" ,method = RequestMethod.GET)
 	public @ResponseBody
-	//@RequestParam @PathVariable
 	Friends createConnection(@RequestParam String name,@RequestParam String name1) {
 		Friends fs = new Friends();
 		if(Tools.checkEmaile(name)&&Tools.checkEmaile(name1)){
 			fs.setFlag("success");
 			fs.setFriends(new String[] { name, name1 });
-			//fs.setName("no exception!");
 		}else{
 			
 			fs.setFlag("false");
 			fs.setFriends(new String[] { name, name1 });
-			//fs.setName("exception: please use the correct mail address!");
 		}
 
 		return fs;
